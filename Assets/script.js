@@ -5,6 +5,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   // var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  let password = '';
 
   //Prompt user for requirements
   let pwLen = Number(prompt("What is the length of the password? (8-128 characters)"));
@@ -14,6 +15,12 @@ function writePassword() {
     }
   console.log(pwLen);
   
+  //define numeric and special chars to add
+  const numericChars = '0123456789';
+  const specialChars = '!@#$%^&*().,';
+  const lowerChars = 'abcdefghijklmnopqrstuvwxyz';
+  const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
   //array of valid answers
   const validChars = ["lowercase", "uppercase", "numeric", "special"];
   //validated output
@@ -31,15 +38,49 @@ function writePassword() {
       validCharArr.push(charTypes[i]);
     }
   }
-  console.log(validCharArr);
 
+  //returns if no valid input
   if (validCharArr.length === 0) {
     alert("Invalid number of character types selected.");
     return
   }
 
+  //confirms the character requirements for the password
+  let useUpper = validCharArr.includes('uppercase');
+  let useLower = validCharArr.includes('lowercase');
+  let useNumeric = validCharArr.includes('numeric');
+  let useSpecial = validCharArr.includes('special');
 
+  //builds string of all possible password characters based on user input
+  let pwStr = '';
+  if (useUpper) {
+    pwStr = pwStr + upperChars;
+  }
+  if (useLower) {
+    pwStr = pwStr + lowerChars;
+  }
+  if (useNumeric) {
+    pwStr = pwStr + numericChars;
+  }
+  if (useSpecial) {
+    pwStr = pwStr + specialChars;
+  }
 
+  //Generate Password function
+  function GeneratePassword(arr, len) {
+    let pass = '';
+    let pwArr = arr.split('');
+    let randomPos = 0;
+    
+    for (let j = 0; j < len; j++) {
+      randomPos = Math.floor(Math.random() * arr.length)
+      pass = pass + (pwArr[randomPos]);
+    }
+
+    return pass
+  }
+
+  password = GeneratePassword(pwStr, pwLen);
   passwordText.value = password;
 
 }
