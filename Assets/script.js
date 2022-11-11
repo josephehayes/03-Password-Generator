@@ -9,12 +9,11 @@ function writePassword() {
 
   //Prompt user for requirements
   let pwLen = Number(prompt("What is the length of the password? (8-128 characters)"));
-    if (pwLen < 8 || pwLen > 128 || !pwLen) {
-      alert("Invalid Password Length.");
-      return
-    }
-  console.log(pwLen);
-  
+  if (pwLen < 8 || pwLen > 128 || !pwLen) {
+    alert("Invalid Password Length.");
+    return
+  }
+
   //define numeric and special chars to add
   const numericChars = '0123456789';
   const specialChars = '!@#$%^&*().,';
@@ -26,11 +25,11 @@ function writePassword() {
   //validated output
   let validCharArr = [];
   //user input
-  let charTypes = prompt("Which character types would you like to include?\nPlease enter any of the following:\nLowercase, Uppercase, Numeric, Special");
+  let charTypes = prompt("Which character types would you like to include?\nPlease enter any combination of the following:\nLowercase, Uppercase, Numeric, Special");
 
   //Changes string to array for validation, uses regex to remove commas, spaces, and 'and'.
   charTypes = charTypes.toLowerCase().split(/\,\s+and\s+|\s+and\s+|\,\s+|\,|\s+/);
-  
+
   //validates input against valid array, builds new array of valid answers
   for (let i = 0; i < charTypes.length; i++) {
     let isValidChar = validChars.includes(charTypes[i]);
@@ -53,6 +52,7 @@ function writePassword() {
 
   //builds string of all possible password characters based on user input
   let pwStr = '';
+
   if (useUpper) {
     pwStr = pwStr + upperChars;
   }
@@ -71,7 +71,7 @@ function writePassword() {
     let pass = '';
     let pwArr = arr.split('');
     let randomPos = 0;
-    
+
     for (let j = 0; j < len; j++) {
       randomPos = Math.floor(Math.random() * arr.length)
       pass = pass + (pwArr[randomPos]);
