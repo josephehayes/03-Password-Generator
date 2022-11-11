@@ -16,7 +16,7 @@ function writePassword() {
 
   //define numeric and special chars to add
   const numericChars = '0123456789';
-  const specialChars = '!@#$%^&*().,';
+  const specialChars = "\"\'!#$%&()*+,-./:;<=>?@[\]^_`{|}~";
   const lowerChars = 'abcdefghijklmnopqrstuvwxyz';
   const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 

@@ -11,7 +11,7 @@ The characters used for the password can be any of the following:
 * Uppercase: ABCDEFGHIJKLMNOPQRSTUVWXYZ
 * Lowercase: abcdefghijklmnopqrstuvwxyz
 * Numeric: 1234567890
-* Special: !@#$%^&*().,
+* Special: !#$%&()*+,-./:;<=>?@[\]^_`{|}~
 
 When the character types have been determined, the page will generate a randomized password using the criteria selected, and display it to the page.
 
