@@ -4,8 +4,11 @@
 
 ## Description
 This page will generate a password based on user input. 
-Once Generate Password is selected, a series of prompts will appear to determine the criteria for the password
+
+Once Generate Password is selected, a series of prompts will appear to determine the criteria for the password.
+
 The password length must be between 8 and 128 characters. If anything below 8 or above 128 characters is entered, an error will be produced.
+
 The characters used for the password can be any of the following:
 
 * Uppercase: ABCDEFGHIJKLMNOPQRSTUVWXYZ
